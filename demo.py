@@ -1,7 +1,9 @@
 import logging
-
+from flask import Flask, request
 from telegram import ForceReply, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
+
+app = Flask(__name__)
 
 # Enable logging
 logging.basicConfig(
@@ -51,4 +53,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000)
     main()
